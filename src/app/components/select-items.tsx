@@ -17,7 +17,7 @@ type SelectItemsProps = {
 };
 
 export function SelectItems({ data, label, placeholder, onChange }: SelectItemsProps) {
-    const handleSelectChange = (value) => {
+    const handleSelectChange = (value: string) => {
         onChange(value);
     };
     return (
