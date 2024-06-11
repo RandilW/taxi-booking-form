@@ -1,76 +1,18 @@
-"use client"
+import DatePickerWithRange from "@/registry/new-york/ui/date-picker-with-range"
+import { Card, CardContent } from "@/registry/new-york/ui/card"
+import { Label } from "@/registry/new-york/ui/label"
 
-import * as React from "react"
-import { CalendarIcon } from "@radix-ui/react-icons"
-import { addDays, format } from "date-fns"
-
-import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york/ui/button"
-import { Calendar } from "@/registry/new-york/ui/calendar"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/registry/new-york/ui/popover"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/registry/new-york/ui/select"
-
-type DatePickerProps = {
-    onChange: (date: Date) => void;  // Add the onChange prop here
-};
-
-export function DatePicker({ onChange }: DatePickerProps) {
-    const [date, setDate] = React.useState<Date>()
-
-    const handleDateChange = (newDate: Date | undefined) => {
-        if (newDate) {
-            setDate(newDate);
-            onChange(newDate);
-        }
-    };
-
-    return (
-        <Popover>
-            <PopoverTrigger asChild>
-                <Button
-                    variant={"outline"}
-                    className={cn(
-                        "w-[240px] justify-start text-left font-normal",
-                        !date && "text-muted-foreground"
-                    )}
-                >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {date ? format(date, "PPP") : <span>Pick a date</span>}
-                </Button>
-            </PopoverTrigger>
-            <PopoverContent
-                align="start"
-                className="flex w-auto flex-col space-y-2 p-2"
-            >
-                <Select
-                    onValueChange={(value) =>
-                        setDate(addDays(new Date(), parseInt(value)))
-                    }
-                >
-                    <SelectTrigger>
-                        <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent position="popper">
-                        <SelectItem value="0">Today</SelectItem>
-                        <SelectItem value="1">Tomorrow</SelectItem>
-                        <SelectItem value="3">In 3 days</SelectItem>
-                        <SelectItem value="7">In a week</SelectItem>
-                    </SelectContent>
-                </Select>
-                <div className="rounded-md border">
-                    <Calendar mode="single" selected={date} onSelect={handleDateChange} />
-                </div>
-            </PopoverContent>
-        </Popover>
-    )
+export function DemoDatePicker() {
+  return (
+    <Card>
+      <CardContent className="pt-6">
+        <div className="space-y-2">
+          <Label htmlFor="date" className="shrink-0">
+            Pick a date
+          </Label>
+          <DatePickerWithRange className="[&>button]:w-[260px]" />
+        </div>
+      </CardContent>
+    </Card>
+  )
 }

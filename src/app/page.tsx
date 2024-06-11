@@ -1,65 +1,92 @@
-import { promises as fs } from "fs"
-import path from "path"
 import { Metadata } from "next"
 import Image from "next/image"
-import { z } from "zod"
 
-import { columns } from "./components/columns"
-import { DataTable } from "./components/data-table"
-import { UserNav } from "./components/user-nav"
-import { taskSchema } from "./data/schema"
+import { cn } from "@/lib/utils"
+
+import { DemoCookieSettings } from "./components/cookie-settings"
+import { DemoCreateAccount } from "./components/create-account"
+import { DemoDatePicker } from "./components/date-picker"
+import { DemoGithub } from "./components/github-card"
+import { DemoNotifications } from "./components/notifications"
+import { DemoPaymentMethod } from "./components/payment-method"
+import { DemoReportAnIssue } from "./components/report-an-issue"
+import { DemoShareDocument } from "./components/share-document"
+import { DemoTeamMembers } from "./components/team-members"
 
 export const metadata: Metadata = {
-  title: "Tasks",
-  description: "A task and issue tracker build using Tanstack Table.",
+  title: "Cards",
+  description: "Examples of cards built using the components.",
 }
 
-// Simulate a database read for tasks.
-async function getTasks() {
-  const data = await fs.readFile(
-      path.join(process.cwd(), "src/app/data/tasks.json")
-  )
-
-  const tasks = JSON.parse(data.toString())
-
-  return z.array(taskSchema).parse(tasks)
-}
-
-export default async function TaskPage() {
-  const tasks = await getTasks()
-
+function DemoContainer({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
-      <>
-        {/*<div className="md:hidden">*/}
-        {/*  <Image*/}
-        {/*      src="/tasks-light.png"*/}
-        {/*      width={1280}*/}
-        {/*      height={998}*/}
-        {/*      alt="Playground"*/}
-        {/*      className="block dark:hidden"*/}
-        {/*  />*/}
-        {/*  <Image*/}
-        {/*      src="/tasks-dark.png"*/}
-        {/*      width={1280}*/}
-        {/*      height={998}*/}
-        {/*      alt="Playground"*/}
-        {/*      className="hidden dark:block"*/}
-        {/*  />*/}
-        {/*</div>*/}
-        <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
-          <div className="flex items-center justify-between space-y-2">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
-              <p className="text-muted-foreground">
-                Here&apos;s a list of your tasks for this month!
-              </p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <UserNav />
-            </div>
-          </div>
-          <DataTable data={tasks} columns={columns} />
+    <div
+      className={cn(
+        "flex items-center justify-center [&>div]:w-full",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export default function CardsPage() {
+  return (
+    <>
+      {/*<div className="md:hidden">*/}
+      {/*  <Image*/}
+      {/*    src="/examples/cards-light.png"*/}
+      {/*    width={1280}*/}
+      {/*    height={1214}*/}
+      {/*    alt="Cards"*/}
+      {/*    className="block dark:hidden"*/}
+      {/*  />*/}
+      {/*  <Image*/}
+      {/*    src="/examples/cards-dark.png"*/}
+      {/*    width={1280}*/}
+      {/*    height={1214}*/}
+      {/*    alt="Cards"*/}
+      {/*    className="hidden dark:block"*/}
+      {/*  />*/}
+      {/*</div>*/}
+      <div className="hidden items-start justify-center gap-6 rounded-lg p-8 md:grid lg:grid-cols-2 xl:grid-cols-3">
+        <div className="col-span-2 grid items-start gap-6 lg:col-span-1">
+          <DemoContainer>
+            <DemoCreateAccount />
+          </DemoContainer>
+          <DemoContainer>
+            <DemoPaymentMethod />
+          </DemoContainer>
         </div>
-      </>
+        <div className="col-span-2 grid items-start gap-6 lg:col-span-1">
+          <DemoContainer>
+            <DemoTeamMembers />
+          </DemoContainer>
+          <DemoContainer>
+            <DemoShareDocument />
+          </DemoContainer>
+          <DemoContainer>
+            <DemoDatePicker />
+          </DemoContainer>
+          <DemoContainer>
+            <DemoNotifications />
+          </DemoContainer>
+        </div>
+        <div className="col-span-2 grid items-start gap-6 lg:col-span-2 lg:grid-cols-2 xl:col-span-1 xl:grid-cols-1">
+          <DemoContainer>
+            <DemoReportAnIssue />
+          </DemoContainer>
+          <DemoContainer>
+            <DemoGithub />
+          </DemoContainer>
+          <DemoContainer>
+            <DemoCookieSettings />
+          </DemoContainer>
+        </div>
+      </div>
+    </>
   )
 }

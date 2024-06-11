@@ -1,98 +1,59 @@
-import {
-  ArrowDownIcon,
-  ArrowRightIcon,
-  ArrowUpIcon,
-  CheckCircledIcon,
-  CircleIcon,
-  CrossCircledIcon,
-  QuestionMarkCircledIcon,
-  StopwatchIcon,
-} from "@radix-ui/react-icons"
+export const stateOptions = [
+  { value: "AL - Alabama", label: "AL - Alabama" },
+  { value: "AK - Alaska", label: "AK - Alaska" },
+  { value: "AZ - Arizona", label: "AZ - Arizona" },
+  { value: "AR - Arkansas", label: "AR - Arkansas" },
+  { value: "CA - California", label: "CA - California" },
+  { value: "CO - Colorado", label: "CO - Colorado" },
+  { value: "CT - Connecticut", label: "CT - Connecticut" },
+  { value: "DE - Delaware", label: "DE - Delaware" },
+  { value: "FL - Florida", label: "FL - Florida" },
+  { value: "GA - Georgia", label: "GA - Georgia" },
+  { value: "HI - Hawaii", label: "HI - Hawaii" },
+  { value: "ID - Idaho", label: "ID - Idaho" },
+  { value: "IL - Illinois", label: "IL - Illinois" },
+  { value: "IN - Indiana", label: "IN - Indiana" },
+  { value: "IA - Iowa", label: "IA - Iowa" },
+  { value: "KS - Kansas", label: "KS - Kansas" },
+  { value: "KY - Kentucky", label: "KY - Kentucky" },
+  { value: "LA - Louisiana", label: "LA - Louisiana" },
+  { value: "ME - Maine", label: "ME - Maine" },
+  { value: "MD - Maryland", label: "MD - Maryland" },
+  { value: "MA - Massachusetts", label: "MA - Massachusetts" },
+  { value: "MI - Michigan", label: "MI - Michigan" },
+  { value: "MN - Minnesota", label: "MN - Minnesota" },
+  { value: "MS - Mississippi", label: "MS - Mississippi" },
+  { value: "MO - Missouri", label: "MO - Missouri" },
+  { value: "MT - Montana", label: "MT - Montana" },
+  { value: "NE - Nebraska", label: "NE - Nebraska" },
+  { value: "NV - Nevada", label: "NV - Nevada" },
+  { value: "NH - New Hampshire", label: "NH - New Hampshire" },
+  { value: "NJ - New Jersey", label: "NJ - New Jersey" },
+  { value: "NM - New Mexico", label: "NM - New Mexico" },
+  { value: "NY - New York", label: "NY - New York" },
+  { value: "NC - North Carolina", label: "NC - North Carolina" },
+  { value: "ND - North Dakota", label: "ND - North Dakota" },
+  { value: "OH - Ohio", label: "OH - Ohio" },
+  { value: "OK - Oklahoma", label: "OK - Oklahoma" },
+  { value: "OR - Oregon", label: "OR - Oregon" },
+  { value: "PA - Pennsylvania", label: "PA - Pennsylvania" },
+  { value: "RI - Rhode Island", label: "RI - Rhode Island" },
+  { value: "SC - South Carolina", label: "SC - South Carolina" },
+  { value: "SD - South Dakota", label: "SD - South Dakota" },
+  { value: "TN - Tennessee", label: "TN - Tennessee" },
+  { value: "TX - Texas", label: "TX - Texas" },
+  { value: "UT - Utah", label: "UT - Utah" },
+  { value: "VT - Vermont", label: "VT - Vermont" },
+  { value: "VA - Virginia", label: "VA - Virginia" },
+  { value: "WA - Washington", label: "WA - Washington" },
+  { value: "WV - West Virginia", label: "WV - West Virginia" },
+  { value: "WI - Wisconsin", label: "WI - Wisconsin" },
+  { value: "WY - Wyoming", label: "WY - Wyoming" },
+];
 
-export const labels = [
-  {
-    value: "report",
-    label: "Report",
-  },
-  {
-    value: "test",
-    label: "Test",
-  },
-  {
-    value: "quiz",
-    label: "Quiz",
-  },
-  {
-    value: "assignment",
-    label: "Assignment",
-  },
-  {
-    value: "homework",
-    label: "Homework",
-  },
-]
-
-export const statuses = [
-  {
-    value: "moved",
-    label: "Moved",
-    icon: QuestionMarkCircledIcon,
-  },
-  {
-    value: "todo",
-    label: "Todo",
-    icon: CircleIcon,
-  },
-  {
-    value: "in progress",
-    label: "In Progress",
-    icon: StopwatchIcon,
-  },
-  {
-    value: "done",
-    label: "Done",
-    icon: CheckCircledIcon,
-  },
-  {
-    value: "canceled",
-    label: "Canceled",
-    icon: CrossCircledIcon,
-  },
-]
-
-export const priorities = [
-  {
-    label: "Low",
-    value: "low",
-    icon: ArrowDownIcon,
-  },
-  {
-    label: "Medium",
-    value: "medium",
-    icon: ArrowRightIcon,
-  },
-  {
-    label: "High",
-    value: "high",
-    icon: ArrowUpIcon,
-  },
-]
-
-export const classes = [
-  {
-    label: "ENGR 217",
-    value: "ENGR 217",
-  },
-  {
-    label: "MATH 251",
-    value: "MATH 251",
-  },
-  {
-    label: "MATH 308",
-    value: "MATH 308",
-  },
-  {
-    label: "PHYS 2326",
-    value: "PHYS 2326",
-  },
-]
+export const numPassengers = [
+  { value: "1", label: "1 Passenger" },
+  { value: "2", label: "2 Passengers" },
+  { value: "3", label: "3 Passengers" },
+  { value: "4", label: "4 Passengers" },
+];
